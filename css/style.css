@@ -1,0 +1,311 @@
+/* ベース設定 */
+:root {
+    /* メインカラー */
+    --divine-gold: #ffd700;
+    --celestial-blue: #4169e1;
+    --mystic-purple: #9b59b6;
+    --holy-white: #ffffff;
+    --sacred-silver: #c0c0c0;
+    
+    /* アクセントカラー */
+    --ethereal-cyan: #00ffff;
+    --spiritual-violet: #8a2be2;
+    --blessed-gold: #daa520;
+    
+    /* テキストカラー */
+    --text-sacred: #2c3e50;
+    --text-divine: #ecf0f1;
+    
+    /* 背景カラー */
+    --bg-heavenly: #e8f4f8;
+    --bg-mystical: #2c3e50;
+    
+    /* エフェクト用 */
+    --halo-glow: rgba(255, 215, 0, 0.3);
+    --divine-border: rgba(255, 215, 0, 0.5);
+    --mystic-shadow: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif JP', serif;
+    background: linear-gradient(135deg, var(--bg-heavenly) 0%, var(--celestial-blue) 100%);
+    min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50l30-30M50 50l-30 30M50 50l30 30M50 50l-30-30' stroke='%23ffd700' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.1;
+}
+
+/* グラスモーフィズム効果 */
+.glass-header, .glass-section, .glass-footer {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--divine-border);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--halo-glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.glass-section:hover::before {
+    opacity: 1;
+    animation: rotateHalo 10s linear infinite;
+}
+
+/* ヘッダースタイル */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(44, 62, 80, 0.9) 0%, rgba(44, 62, 80, 0.7) 100%);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--divine-gold), var(--holy-white));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px var(--halo-glow);
+    animation: divinePulse 3s ease-in-out infinite;
+}
+
+/* ナビゲーション */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: var(--holy-white);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 1px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    z-index: 1001;
+    animation: fadeIn 0.5s ease;
+}
+
+.popup button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    transition: transform 0.3s ease;
+}
+
+.popup button:hover {
+    transform: rotate(90deg);
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--halo-glow), transparent);
+    transition: left 0.4s ease;
+}
+
+nav a:hover::before {
+    left: 100%;
+}
+
+/* メインコンテンツ */
+main {
+    margin-top: 180px;
+    padding: 30px;
+    position: relative;
+}
+
+.hero {
+    position: relative;
+    padding: 5rem 3rem;
+    margin-bottom: 4rem;
+}
+
+/* 神聖な光の効果 */
+.divine-light {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--halo-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: divineLight 4s infinite;
+    pointer-events: none;
+}
+
+/* 見出しスタイル */
+h2 {
+    animation: ascendText 1.5s ease-out;
+    color: var(--text-sacred);
+    text-shadow: 0 0 15px var(--holy-white);
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::before, h2::after {
+    content: '✧';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--divine-gold);
+    opacity: 0.7;
+}
+
+h2::before {
+    left: -30px;
+}
+
+h2::after {
+    right: -30px;
+}
+
+/* タイムライン */
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+    padding: 25px;
+    margin: 30px 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    border-left: 5px solid var(--divine-gold);
+    animation: revealContent 1s ease forwards;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '☘';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--divine-gold);
+    font-size: 1.5rem;
+}
+
+/* アニメーション定義 */
+@keyframes divineLight {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+}
+
+@keyframes divinePulse {
+    0% { text-shadow: 0 0 10px var(--halo-glow); }
+    50% { text-shadow: 0 0 25px var(--halo-glow), 0 0 50px var(--halo-glow); }
+    100% { text-shadow: 0 0 10px var(--halo-glow); }
+}
+
+@keyframes ascendText {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateHalo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes revealContent {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .divine-light {
+        width: 200px;
+        height: 200px;
+    }
+
+    .timeline-item {
+        margin: 15px;
+    }
+
+    h2::before, h2::after {
+        display: none;
+    }
+}
