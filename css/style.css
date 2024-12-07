@@ -41,7 +41,6 @@ body {
     position: relative;
 }
 
-/* 神秘的な背景パターン */
 body::before {
     content: '';
     position: fixed;
@@ -57,7 +56,6 @@ body::before {
     animation: backgroundPulse 10s infinite alternate;
 }
 
-/* グラスモーフィズム効果 - より神秘的に */
 .glass-header, .glass-section, .glass-footer {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
@@ -90,7 +88,6 @@ body::before {
     animation: rotateHalo 15s linear infinite;
 }
 
-/* ヘッダースタイル - より荘厳に */
 header {
     position: fixed;
     top: 0;
@@ -112,7 +109,6 @@ header h1 {
     animation: divinePulse 4s ease-in-out infinite;
 }
 
-/* ナビゲーション - より神秘的に */
 nav {
     display: flex;
     justify-content: center;
@@ -153,7 +149,6 @@ nav a:hover {
     box-shadow: 0 5px 15px var(--mystic-shadow);
 }
 
-/* メインコンテンツ - より荘厳に */
 main {
     margin-top: 200px;
     padding: 40px;
@@ -194,7 +189,6 @@ main {
     margin-bottom: 5rem;
 }
 
-/* 神聖な光の効果 - より強調 */
 .divine-light {
     position: absolute;
     top: 50%;
@@ -208,7 +202,6 @@ main {
     pointer-events: none;
 }
 
-/* 見出しスタイル - より神秘的に */
 h2 {
     animation: ascendText 2s ease-out;
     color: var(--text-sacred);
@@ -239,7 +232,6 @@ h2::after {
     right: -40px;
 }
 
-/* タイムライン - より神秘的に */
 .timeline {
     max-width: 1000px;
     margin: 0 auto;
@@ -269,7 +261,6 @@ h2::after {
     animation: symbolFloat 3s infinite alternate;
 }
 
-/* 新しいアニメーション定義 */
 @keyframes backgroundPulse {
     0% { opacity: 0.1; }
     100% { opacity: 0.2; }
