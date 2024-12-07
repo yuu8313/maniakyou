@@ -1,342 +1,374 @@
-/* ベース設定 */
 :root {
-    /* メインカラー */
-    --divine-gold: #ffd700;
-    --celestial-blue: #1e90ff;
-    --mystic-purple: #8b00ff;
-    --holy-white: #ffffff;
-    --sacred-silver: #e6e8fa;
-    
-    /* アクセントカラー */
-    --ethereal-cyan: #00ffff;
-    --spiritual-violet: #9400d3;
-    --blessed-gold: #ffd700;
-    
-    /* テキストカラー */
-    --text-sacred: #4b0082;
-    --text-divine: #f0f8ff;
-    
-    /* 背景カラー */
-    --bg-heavenly: #e6e6fa;
-    --bg-mystical: #191970;
-    
-    /* エフェクト用 */
-    --halo-glow: rgba(255, 215, 0, 0.4);
-    --divine-border: rgba(255, 215, 0, 0.6);
-    --mystic-shadow: rgba(138, 43, 226, 0.3);
+  --divine-gold: gold;
+  --celestial-blue: #1e90ff;
+  --mystic-purple: #8b00ff;
+  --holy-white: #fff;
+  --sacred-silver: #e6e8fa;
+  --ethereal-cyan: #0ff;
+  --spiritual-violet: #9400d3;
+  --blessed-gold: gold;
+  --text-sacred: indigo;
+  --text-divine: #f0f8ff;
+  --bg-heavenly: #e6e6fa;
+  --bg-mystical: #191970;
+  --halo-glow: rgba(255, 215, 0, .4);
+  --divine-border: rgba(255, 215, 0, .6);
+  --mystic-shadow: rgba(138, 43, 226, .3)
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
 }
 
 body {
-    font-family: 'Noto Serif JP', serif;
-    background: linear-gradient(135deg, var(--bg-mystical) 0%, var(--celestial-blue) 100%);
-    min-height: 100vh;
-    text-align: center;
-    overflow-x: hidden;
-    position: relative;
+  font-family: 'Noto Serif JP', serif;
+  background: linear-gradient(135deg, var(--bg-mystical) 0%, var(--celestial-blue) 100%);
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative
 }
 
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 50% 50%, var(--halo-glow) 0%, transparent 60%),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50l30-30M50 50l-30 30M50 50l30 30M50 50l-30-30' stroke='%23ffd700' stroke-width='0.8' fill='none' opacity='0.4'/%3E%3C/svg%3E");
-    pointer-events: none;
-    opacity: 0.15;
-    animation: backgroundPulse 10s infinite alternate;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, var(--halo-glow) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50l30-30M50 50l-30 30M50 50l30 30M50 50l-30-30' stroke='%23ffd700' stroke-width='0.8' fill='none' opacity='0.4'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: .15;
+  animation: backgroundPulse 10s infinite alternate
 }
 
-.glass-header, .glass-section, .glass-footer {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border: 2px solid var(--divine-border);
-    border-radius: 30px;
-    padding: 30px;
-    margin: 30px;
-    transition: all 0.6s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 30px var(--mystic-shadow);
+.glass-header,
+.glass-section,
+.glass-footer {
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--divine-border);
+  border-radius: 30px;
+  padding: 30px;
+  margin: 30px;
+  transition: all 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px var(--mystic-shadow)
 }
 
 .glass-section::before {
-    content: '☽';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    font-size: 10rem;
-    color: var(--divine-gold);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
+  content: '☽';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  font-size: 10rem;
+  color: var(--divine-gold);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none
 }
 
 .glass-section:hover::before {
-    opacity: 0.1;
-    animation: rotateHalo 15s linear infinite;
+  opacity: .1;
+  animation: rotateHalo 15s linear infinite
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 2rem;
-    background: linear-gradient(180deg, rgba(25, 25, 112, 0.95) 0%, rgba(25, 25, 112, 0.8) 100%);
-    border-bottom: 2px solid var(--divine-border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(25, 25, 112, .95) 0%, rgba(25, 25, 112, .8) 100%);
+  border-bottom: 2px solid var(--divine-border)
 }
 
 header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(45deg, var(--divine-gold), var(--holy-white), var(--divine-gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px var(--halo-glow);
-    animation: divinePulse 4s ease-in-out infinite;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, var(--divine-gold), var(--holy-white), var(--divine-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px var(--halo-glow);
+  animation: divinePulse 4s ease-in-out infinite
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem
 }
 
 nav a {
-    color: var(--holy-white);
-    text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 15px;
-    transition: all 0.6s ease;
-    position: relative;
-    overflow: hidden;
-    font-family: 'Noto Serif JP', serif;
-    letter-spacing: 2px;
-    border: 1px solid var(--divine-border);
+  color: var(--holy-white);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  transition: all 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 2px;
+  border: 1px solid var(--divine-border)
 }
 
 nav a::before {
-    content: '✧';
-    position: absolute;
-    top: 50%;
-    left: -100%;
-    transform: translateY(-50%);
-    color: var(--divine-gold);
-    font-size: 1.5rem;
-    transition: left 0.6s ease;
+  content: '✧';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  transform: translateY(-50%);
+  color: var(--divine-gold);
+  font-size: 1.5rem;
+  transition: left 0.6s ease
 }
 
 nav a:hover::before {
-    left: 10px;
+  left: 10px
 }
 
 nav a:hover {
-    background: rgba(255, 215, 0, 0.1);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px var(--mystic-shadow);
+  background: rgba(255, 215, 0, .1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--mystic-shadow)
 }
 
 main {
-    margin-top: 200px;
-    padding: 40px;
-    position: relative;
+  margin-top: 200px;
+  padding: 40px;
+  position: relative
 }
 
 .popup {
-    display: none;
-    position: fixed;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    z-index: 1001;
-    animation: fadeIn 0.5s ease;
+  display: none;
+  position: fixed;
+  background: rgba(255, 255, 255, .95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  z-index: 1001;
+  animation: fadeIn 0.5s ease
 }
 
 .popup button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    transition: transform 0.3s ease;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  transition: transform 0.3s ease
 }
 
 .popup button:hover {
-    transform: rotate(90deg);
+  transform: rotate(90deg)
 }
 
-
 .hero {
-    position: relative;
-    padding: 6rem 4rem;
-    margin-bottom: 5rem;
+  position: relative;
+  padding: 6rem 4rem;
+  margin-bottom: 5rem
 }
 
 .divine-light {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, var(--halo-glow) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: divineLight 6s infinite;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--halo-glow) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: divineLight 6s infinite;
+  pointer-events: none
 }
 
 h2 {
-    animation: ascendText 2s ease-out;
-    color: var(--text-sacred);
-    text-shadow: 0 0 20px var(--holy-white);
-    font-family: 'Noto Serif JP', serif;
-    letter-spacing: 3px;
-    position: relative;
-    display: inline-block;
-    padding: 0 50px;
+  animation: ascendText 2s ease-out;
+  color: var(--text-sacred);
+  text-shadow: 0 0 20px var(--holy-white);
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+  padding: 0 50px
 }
 
-h2::before, h2::after {
-    content: '✧';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--divine-gold);
-    opacity: 0.8;
-    font-size: 2rem;
-    animation: starPulse 2s infinite alternate;
+h2::before,
+h2::after {
+  content: '✧';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--divine-gold);
+  opacity: .8;
+  font-size: 2rem;
+  animation: starPulse 2s infinite alternate
 }
 
 h2::before {
-    left: -40px;
+  left: -40px
 }
 
 h2::after {
-    right: -40px;
+  right: -40px
 }
 
 .timeline {
-    max-width: 1000px;
-    margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto
 }
 
 .timeline-item {
-    opacity: 0;
-    transform: translateY(40px);
-    padding: 30px;
-    margin: 40px 0;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    border-left: 8px solid var(--divine-gold);
-    animation: revealContent 1.5s ease forwards;
-    position: relative;
-    box-shadow: 0 0 20px var(--mystic-shadow);
+  opacity: 0;
+  transform: translateY(40px);
+  padding: 30px;
+  margin: 40px 0;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 20px;
+  border-left: 8px solid var(--divine-gold);
+  animation: revealContent 1.5s ease forwards;
+  position: relative;
+  box-shadow: 0 0 20px var(--mystic-shadow)
 }
 
 .timeline-item::before {
-    content: '☘';
-    position: absolute;
-    left: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--divine-gold);
-    font-size: 2rem;
-    animation: symbolFloat 3s infinite alternate;
+  content: '☘';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--divine-gold);
+  font-size: 2rem;
+  animation: symbolFloat 3s infinite alternate
 }
 
 @keyframes backgroundPulse {
-    0% { opacity: 0.1; }
-    100% { opacity: 0.2; }
+  0% {
+    opacity: .1
+  }
+
+  100% {
+    opacity: .2
+  }
 }
 
 @keyframes divineLight {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.6; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: .3
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: .6
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: .3
+  }
 }
 
 @keyframes divinePulse {
-    0% { text-shadow: 0 0 15px var(--halo-glow); }
-    50% { text-shadow: 0 0 30px var(--halo-glow), 0 0 60px var(--halo-glow); }
-    100% { text-shadow: 0 0 15px var(--halo-glow); }
+  0% {
+    text-shadow: 0 0 15px var(--halo-glow)
+  }
+
+  50% {
+    text-shadow: 0 0 30px var(--halo-glow), 0 0 60px var(--halo-glow)
+  }
+
+  100% {
+    text-shadow: 0 0 15px var(--halo-glow)
+  }
 }
 
 @keyframes starPulse {
-    0% { transform: translateY(-50%) scale(1); opacity: 0.6; }
-    100% { transform: translateY(-50%) scale(1.2); opacity: 1; }
+  0% {
+    transform: translateY(-50%) scale(1);
+    opacity: .6
+  }
+
+  100% {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 1
+  }
 }
 
 @keyframes symbolFloat {
-    0% { transform: translateY(-50%) rotate(0deg); }
-    100% { transform: translateY(-50%) rotate(10deg); }
+  0% {
+    transform: translateY(-50%) rotate(0deg)
+  }
+
+  100% {
+    transform: translateY(-50%) rotate(10deg)
+  }
 }
 
 @keyframes ascendText {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(40px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
 }
 
 @keyframes rotateHalo {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
 }
 
 @keyframes revealContent {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
 }
 
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.8rem;
-    }
+@media (max-width:768px) {
+  header h1 {
+    font-size: 2.8rem
+  }
 
-    nav {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
+  nav {
+    flex-direction: column;
+    gap: 1.5rem
+  }
 
-    .divine-light {
-        width: 300px;
-        height: 300px;
-    }
+  .divine-light {
+    width: 300px;
+    height: 300px
+  }
 
-    .timeline-item {
-        margin: 20px;
-        padding: 20px;
-    }
+  .timeline-item {
+    margin: 20px;
+    padding: 20px
+  }
 
-    h2 {
-        padding: 0 30px;
-    }
+  h2 {
+    padding: 0 30px
+  }
 
-    h2::before, h2::after {
-        font-size: 1.5rem;
-    }
+  h2::before,
+  h2::after {
+    font-size: 1.5rem
+  }
 }
